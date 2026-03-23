@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worried About the Wrong Thing — A Civic Column</title>
+  <meta name="description" content="America keeps worrying about the wrong things. A civic column by Penny Wrenn.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf6ed;
+      --paper-dark: #f2ece0;
+      --ink: #1a1209;
+      --ink-mid: #3d2e1a;
+      --ink-light: #6b5a44;
+      --gold: #c8a96e;
+      --gold-dark: #8b6914;
+      --rule: rgba(139,105,20,0.25);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Libre Baskerville', Georgia, serif;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    .masthead {
+      background: var(--paper-dark);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.6rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .masthead-label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .masthead-date {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--ink-light);
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 4px double var(--ink);
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header::before {
+      content: '❧';
+      display: block;
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .pub-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.2rem, 7vw, 5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .pub-tagline {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.5rem 0;
+      margin: 0 auto;
+      max-width: 500px;
+    }
+
+    /* MAIN */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* LEDE */
+    .lede-section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .lede-left {}
+
+    .section-kicker {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .lede-headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .lede-headline em {
+      font-style: italic;
+      color: var(--gold-dark);
+    }
+
+    .lede-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink-mid);
+    }
+
+    .lede-text p + p { margin-top: 1rem; }
+
+    .drop-cap::first-letter {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 0.8;
+      float: left;
+      margin: 0.1rem 0.15rem 0 0;
+      color: var(--ink);
+    }
+
+    .lede-right {
+      border-left: 1px solid var(--rule);
+      padding-left: 3rem;
+    }
+
+    .pullquote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.35;
+      color: var(--ink);
+      border-top: 3px solid var(--ink);
+      border-bottom: 1px solid var(--rule);
+      padding: 1.5rem 0;
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-box {
+      background: var(--paper-dark);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--gold);
+      padding: 1.5rem;
+    }
+
+    .sidebar-box h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sidebar-box ul {
+      padding-left: 1.2rem;
+    }
+
+    .sidebar-box li {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      color: var(--ink-mid);
+    }
+
+    /* FIRST COLUMN */
+    .first-column {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .column-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 0.75rem;
+    }
+
+    .column-header h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .column-number {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      background: var(--paper-dark);
+      border: 1px solid var(--rule);
+      padding: 0.3rem 0.75rem;
+    }
+
+    .column-body {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+
+    .column-text h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .column-text p {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: var(--ink-mid);
+      margin-bottom: 1rem;
+    }
+
+    .column-sidebar {}
+
+    .column-sidebar .rule-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--ink);
+      border-left: 3px solid var(--gold);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .column-sidebar p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--ink-light);
+    }
+
+    /* AMERICA 250 BAND */
+    .a250-band {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 3rem 2rem;
+      margin: 0;
+      text-align: center;
+    }
+
+    .a250-band .kicker {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .a250-band h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .a250-band p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(250,246,237,0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--paper-dark);
+      border-top: 4px double var(--ink);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-pub {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-copy {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--ink-light);
+      line-height: 2;
+    }
+
+    @media (max-width: 768px) {
+      .lede-section { grid-template-columns: 1fr; gap: 2rem; }
+      .lede-right { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 2rem; }
+      .column-body { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="masthead">
+    <span class="masthead-label">A Civic Column by Penny Wrenn</span>
+    <span class="masthead-date">Established 2025 · America 250</span>
+  </div>
+
+  <header>
+    <h1 class="pub-name">Worried About<br>the Wrong Thing</h1>
+    <p class="pub-tagline">A column on civic misdirection · America 250 editorial framework</p>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="lede-section">
+        <div class="lede-left">
+          <div class="section-kicker">Editorial — The Premise</div>
+          <h2 class="lede-headline">America Has Always Had a Talent for<br><em>Looking Precisely the Wrong Direction</em></h2>
+          <div class="lede-text">
+            <p class="drop-cap">There is a particular American gift for panic — for identifying a threat with absolute precision and total irrelevance, while the actual crisis grows quietly in the background, unattended. We have been doing this since the beginning. We worry about the symptom, not the disease. The flag, not the republic it represents. The pronoun, not the policy. The tweet, not the law.</p>
+            <p>This column is about that misdirection — not in a cynical way, not as a game to play, but as a genuine civic inquiry. What are we actually afraid of? What would happen if we looked directly at the thing we keep not looking at? What does it cost us, as a democracy, to spend our attention on the wrong alarm?</p>
+            <p>The questions are not partisan. The misdirection is bipartisan, even if the specific wrong things we worry about change with the political weather. The column will go wherever the evidence leads — and it will name what it finds.</p>
+          </div>
+        </div>
+        <div class="lede-right">
+          <p class="pullquote">"We have met the distraction, and it is us."</p>
+          <div class="sidebar-box">
+            <h3>What This Column Is</h3>
+            <ul>
+              <li>Civic observation, not political advocacy</li>
+              <li>Named misdirections with evidence</li>
+              <li>The overlooked thing, examined closely</li>
+              <li>America 250: where are we, really?</li>
+              <li>No party, no algorithm, no outrage quota</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="first-column">
+        <div class="column-header">
+          <span class="column-number">Column No. 1</span>
+          <h2>The First Wrong Thing</h2>
+        </div>
+        <div class="column-body">
+          <div class="column-text">
+            <h3>We Are Worried About Culture.<br>We Should Be Worried About Infrastructure.</h3>
+            <p>Every political cycle for the past thirty years has been, at some level, a culture war. Flags. Pronouns. Songs at football games. The content of museum placards. The pronouncements of university presidents. These things are fought over with a ferocity that is inversely proportional to their civic impact.</p>
+            <p>Meanwhile: bridges. Water systems. Electrical grids. Rural broadband. Maternal mortality rates. The life expectancy gap between the wealthiest and poorest ZIP codes in America, which now exceeds twenty years. These things are not fought over with anything like the same energy — because they do not produce viral moments, because they are complicated, because they require sustained attention rather than a sharp take.</p>
+            <p>The culture war is not fake — the feelings are real, the stakes feel real, the communities who engage in it are not stupid. But the culture war is also, functionally, a distraction from the harder, slower, more important work of maintaining a republic that actually functions for the people who live in it.</p>
+            <p>We are 250 years old. The question for America's 250th year is not whether we have the right aesthetic. It's whether we have the functioning infrastructure — civic, physical, and moral — to carry the republic into its next century.</p>
+          </div>
+          <div class="column-sidebar">
+            <p class="rule-text">"The medium is the misdirection."</p>
+            <p>The same platforms that connect us at scale also train us to react to what is provocative rather than what is important. Civic attention is finite. Where it goes determines what gets fixed.</p>
+            <p style="margin-top:1rem;">This is not a new problem. It is an old American pattern — one that can be interrupted, but only deliberately, only with practice.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="a250-band">
+      <p class="kicker">America 250 · The Editorial Framework</p>
+      <h2>250 Years Old. The Anniversary Is Not the Story.</h2>
+      <p>In 2026, America marks its 250th year. The bunting will be out. The speeches will be made. The fireworks will be spectacular. And none of that is the story. The story is whether the republic — the actual governing machinery, the civic compact, the promise of self-governance — is in better or worse condition than it was when we started. That is what this publication covers.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-pub">Worried About the Wrong Thing</div>
+    <div class="footer-copy">
+      © Penny Wrenn · All Rights Reserved · Free to read · Not free to extract<br>
+      pennywrenn.blog · Part of the America 250 editorial framework
+    </div>
+  </footer>
+
+</body>
+</html>
